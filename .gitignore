@@ -117,4 +117,4 @@ dist
 
 # extra
 package-lock.json
-token.json
+config.json
