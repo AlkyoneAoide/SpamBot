@@ -31,10 +31,14 @@ client.on('message', message => {
 	//For example, \help roll will become [help,roll]
 	let args = message.content.slice(prefix.length).split(/ +/);
 
+	runCommand(args);
+
 	//Find + Execute Command
 	function runCommand(str) {
-		return message.channel.send(`You wanted to run ${args}`)
-		eval(dict[args]);
+		return message.channel.send(`You wanted to run ${args}`);
+		console.log(dict[`${args}`]);
+		if(dict[`${args}`]) {eval(dict[`${args}`])}
+		else {return message.channel.send('Invalid Command')}
 	}
 
 });
