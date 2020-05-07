@@ -27,7 +27,7 @@ client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	//Take everything after the prefix and split it into an array
 	//For example, \help roll will become [help,roll]
-	const args = message.content.slice(prefix.length).split(/ +/).toLowerCase();
+	const args = message.content.slice(prefix.length).split(/ +/);
 
 	//If args.length is true (>0) do runCommand(), else do help()
 	args.length ? runCommand() : help()
