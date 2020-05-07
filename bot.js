@@ -9,6 +9,7 @@ global.document = document;
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { prefix, token } = require("./config.json");
+const dict = require("./dict.json");
 
 
 //The main function, start the bot here
@@ -30,18 +31,11 @@ client.on('message', message => {
 	//For example, \help roll will become [help,roll]
 	let args = message.content.slice(prefix.length).split(/ +/);
 
-	//If args.length is true (>0) do runCommand(), else do help()
-	args.length ? runCommand() : help();
-
-//Command Programming
-function runCommand() {
-	return message.channel.send(`You wanted to run ${args}`)
-}
-
-//What to do if no command was specified
-function help() {
-	return message.channel.send("Unspecified Command");
-}
+	//Find + Execute Command
+	function runCommand(str) {
+		return message.channel.send(`You wanted to run ${args}`)
+		eval(dict[args]);
+	}
 
 });
 

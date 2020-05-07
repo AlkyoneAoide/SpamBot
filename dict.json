@@ -1,0 +1,4 @@
+{
+	"" : "function(){return message.channel.send('Unspecified Command')}",
+	"help" : "function(){return message.channel.send('Unspecified Command')}"
+}
