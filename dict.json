@@ -1,4 +1,4 @@
 {
-	"" : "(function(){return message.channel.send('Help:')})();",
-	"help" : "(function(){return message.channel.send('Help')})();"
+	"" : "(_=>{return message.channel.send('Help:')})();",
+	"help" : "(_=>{return message.channel.send('Help:')})();"
 }
