@@ -36,7 +36,7 @@ client.on('message', message => {
 	//Find + Execute Command
 	function runCommand(str) {
 		if(dict[args[0]]) {eval(dict[args[0]])}
-		else {return message.channel.send('Invalid Command')}
+		else {return message.channel.send(`FOOL\nYou cannot run ${args[0]}`)}
 	}
 
 });
