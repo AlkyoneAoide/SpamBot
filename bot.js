@@ -35,7 +35,6 @@ client.on('message', message => {
 
 	//Find + Execute Command
 	function runCommand(str) {
-		message.channel.send(`You wanted to run ${args}`);
 		if(dict[args[0]]) {eval(dict[args[0]])}
 		else {return message.channel.send('Invalid Command')}
 	}
