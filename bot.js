@@ -9,7 +9,7 @@ global.document = document;
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { prefix, token, randAlphabet } = require("./config.json");
-const dict = require("./dict.json");
+const dict = require("./dict.js");
 
 
 //The main function, start the bot here
@@ -35,8 +35,9 @@ client.on('message', message => {
 
 	//Find + Execute Command
 	function runCommand(str) {
-		if(dict[args[0]]) {eval(dict[args[0]])}
-		else {return message.channel.send(`FOOL\nYou cannot run ${args[0]}`)}
+		cmd = args[0]
+		if (cmd()) {cmd()}
+		else {return message.channel.send(`FOOL\nYou cannot run ${cmd}`)}
 	}
 
 });
