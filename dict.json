@@ -1,5 +1,5 @@
 {
 	"" : "(_=>{return message.channel.send('Help:')})();",
-	"help" : "(_=>{return message.channel.send('Help:')})();"
+	"help" : "(_=>{return message.channel.send('Help:')})();",
 	"avatar" : "(_=>{if (args[1]) {return message.channel.send(message.mentions.users.first().avatarURL)} else {return message.channel.send(message.author.avatarURL)}})();"
 }
