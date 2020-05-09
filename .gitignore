@@ -118,3 +118,4 @@ dist
 # extra
 package-lock.json
 config.json
+run.*
