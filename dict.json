@@ -1,5 +1,5 @@
 {
 	"" : "(_=>{return message.channel.send('Help:')})();",
 	"help" : "(_=>{return message.channel.send('Help:')})();",
-	"avatar" : "(_=>{if (args[1]) {return message.channel.send(Discord.MessageEmbed().setTitle(message.mentions.users.first()).setThumbnail(message.mentions.users.first().avatarURL))} else {return message.channel.send(Discord.MessageEmbed().setTitle(message.author).setThumbnail(message.author.avatarURL))}})();"
+	"avatar" : "(_=>{let embed = new Discord.MessageEmbed(); if (args[1]) {return message.channel.send(embed.setTitle(message.mentions.users.first()).setThumbnail(message.mentions.users.first().avatarURL))} else {return message.channel.send(embed.setTitle(message.author).setThumbnail(message.author.avatarURL))}})();"
 }
