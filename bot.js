@@ -1,29 +1,28 @@
-//Mimic a webpage with jsdom
-var jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const { window } = new JSDOM();
-const { document } = (new JSDOM('')).window;
-global.document = document;
 
-//Extra (needed) variables
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const { prefix, token, randAlphabet } = require("./config.json");
-const dict = require("./dict.js");
+const actions = require('./actions.js')
 
 
-//The main function, start the bot here
-function main() {
-	client.once('ready', () => {
-	console.log('Ready!');
-	});
+//Find + Execute Command
+runCommand = function(args, message) {
+	const msgHelper = { args, message, Discord, randAlphabet }
+	const cmd = args[0]
 
-	client.login(token);
+	if (cmd in actions) {
+		console.log(message.content)
+		actions[cmd](msgHelper)
+	}
+	else {
+		const response = `FOOL\nYou cannot run ${cmd}`
+		console.log(response)
+		return message.channel.send(response)
+	}
 }
 
 
-//What happens every time a message is picked up by the bot
-client.on('message', message => {
+msgResponder = function(message) {
 	//Check if message starts with the prefix (default '\')
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -31,19 +30,24 @@ client.on('message', message => {
 	//For example, \help roll will become [help,roll]
 	let args = message.content.slice(prefix.length).split(/ +/);
 
-	runCommand(args);
-
-	//Find + Execute Command
-	function runCommand(str) {
-		cmd = args[0]
-		if (cmd()) {cmd()}
-		else {return message.channel.send(`FOOL\nYou cannot run ${cmd}`)}
-	}
-
-});
+	runCommand(args, message);
+}
 
 
 //===========================================================
 // Once the entire document is loaded, run the main function
 //===========================================================
-document.addEventListener("DOMContentLoaded", main());
+
+//The main function, start the bot here
+function main() {
+	client.once('ready', () => {
+		console.log('Ready!');
+	});
+
+	//What happens every time a message is picked up by the bot
+	client.on('message', msgResponder)
+
+	client.login(token);
+}
+
+main()

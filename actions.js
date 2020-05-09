@@ -1,8 +1,15 @@
-function help() {
-	return message.channel.send('Help')
-}
 
-function avatar() {
+module.exports = (_ => { return {
+
+
+help: msgHelper => {
+	const { message } = msgHelper
+	return msgHelper.message.channel.send('Help')
+},
+
+
+avatar: msgHelper => {
+	const { args, message, Discord } = msgHelper
 	let embed = new Discord.MessageEmbed();
 	if (args[1])
 		{return message.channel.send(
@@ -20,9 +27,11 @@ function avatar() {
 				.avatarURL( {format: 'png'} )
 			)
 		)}
-}
+},
 
-function rand() {
+
+rand: msgHelper => {
+	const { args, message, randAlphabet } = msgHelper
 	let char;
 	let msg = new Array(randAlphabet.length);
 	if (args[1])
@@ -35,3 +44,6 @@ function rand() {
 
 	return message.channel.send(msg.join(''))
 }
+
+
+}})()
