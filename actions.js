@@ -4,7 +4,7 @@ module.exports = (_ => { return {
 
 help: msgHelper => {
 	const { message } = msgHelper
-	return msgHelper.message.channel.send('Help')
+	return msgHelper.message.channel.send('Valid Commands\nhelp\navatar\nrand')
 },
 
 
@@ -34,10 +34,12 @@ rand: msgHelper => {
 	const { args, message, randAlphabet } = msgHelper
 	let char;
 	let msg = new Array(randAlphabet.length);
-	if (args[1])
-		{char = args[1]}
-	else
+	if (!args[1])
 		{char = 10}
+	else if (args[1] > 2000 || isNaN(args[1]))
+		{return message.channel.send('Pick a number 2000 or below!')}
+	else
+		{char = args[1]}
 
 	for(i=0; i<char; i++)
 		{msg[i] = randAlphabet[Math.floor(Math.random() * (randAlphabet.length - 1) + 1)]}
