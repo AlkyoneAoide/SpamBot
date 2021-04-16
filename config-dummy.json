@@ -1,6 +1,6 @@
 {
 	"clientID" : "",
 	"token" : "",
-	"prefix" : "\\",
+	"prefix" : ">",
 	"randAlphabet" : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 }
