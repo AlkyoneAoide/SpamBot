@@ -4,7 +4,13 @@ module.exports = (_ => { return {
 
 help: msgHelper => {
 	const { message } = msgHelper
-	return msgHelper.message.channel.send('Valid Commands\nhelp\navatar\nrand')
+	return msgHelper.message.channel.send('Valid Commands\nhelp\ninvite\navatar\nrand')
+},
+
+
+invite: msgHelper => {
+	const { message } = msgHelper
+	return msgHelper.message.channel.send('https://discord.com/oauth2/authorize?client_id=707383577586696294&scope=bot&permissions=8')
 },
 
 
