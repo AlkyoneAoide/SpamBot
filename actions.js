@@ -9,8 +9,8 @@ help: msgHelper => {
 
 
 invite: msgHelper => {
-	const { message } = msgHelper
-	return msgHelper.message.channel.send('https://discord.com/oauth2/authorize?client_id=707383577586696294&scope=bot&permissions=8')
+	const { message, clientID } = msgHelper
+	return msgHelper.message.channel.send('https://discord.com/oauth2/authorize?client_id=' + clientID + '&scope=bot&permissions=8')
 },
 
 

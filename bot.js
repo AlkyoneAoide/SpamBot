@@ -1,13 +1,13 @@
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token, randAlphabet } = require("./config.json");
+const { token, clientID, prefix, randAlphabet } = require("./config.json");
 const actions = require('./actions.js')
 
 
 //Find + Execute Command
 runCommand = function(args, message) {
-	const msgHelper = { args, message, Discord, randAlphabet }
+	const msgHelper = { args, message, Discord, clientID, randAlphabet }
 	const cmd = args[0]
 
 	if (cmd in actions) {
