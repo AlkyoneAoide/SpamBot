@@ -1,13 +1,13 @@
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { token, clientID, prefix, randAlphabet } = require("./config.json");
+const { token, clientID, prefix, randChars } = require("./config.json");
 const actions = require('./actions.js')
 
 
 //Find + Execute Command
 runCommand = function(args, message) {
-	const msgHelper = { args, message, Discord, clientID, randAlphabet }
+	const msgHelper = { args, message, Discord, clientID, randChars }
 	const cmd = args[0]
 
 	if (cmd in actions) {
@@ -15,7 +15,7 @@ runCommand = function(args, message) {
 		actions[cmd](msgHelper)
 	}
 	else {
-		const response = `FOOL\nYou cannot run ${cmd}`
+		let response = `FOOL... You cannot run ${cmd}`
 		console.log(response)
 		return message.channel.send(response)
 	}
