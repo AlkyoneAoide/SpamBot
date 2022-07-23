@@ -2,5 +2,5 @@
 	"clientID" : "",
 	"token" : "",
 	"prefix" : ">",
-	"randAlphabet" : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	"randChars" : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 }
