@@ -23,7 +23,7 @@ runCommand = function(args, message) {
 
 
 msgResponder = function(message) {
-	//Check if message starts with the prefix (default '\')
+	//Check if message starts with the prefix (default '>')
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	//Take everything after the prefix and split it into an array
